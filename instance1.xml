@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="QLBDA.xsl"?>
+<QLBDA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="QLBDA.xsd">
+    <MONANS>
+        <MONAN maMonAn="MA0001">
+            <tenMon>Gà Rán</tenMon>
+            <gia>32000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+        <MONAN maMonAn="MA0002">
+            <tenMon>Khoai tây chiên</tenMon>
+            <gia>21000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+        <MONAN maMonAn="MA0003">
+            <tenMon>Hamburger bò</tenMon>
+            <gia>35000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+        <MONAN maMonAn="MA0004">
+            <tenMon>Pizza phô mai</tenMon>
+            <gia>69000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+        <MONAN maMonAn="MA0005">
+            <tenMon>Cánh gà nướng</tenMon>
+            <gia>29000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+        <MONAN maMonAn="MA0006">
+            <tenMon>Gà Rán sốt cay</tenMon>
+            <gia>34000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+        <MONAN maMonAn="MA0007">
+            <tenMon>Sanwich trứng rán phô mai</tenMon>
+            <gia>25000</gia>
+            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
+                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+        </MONAN>
+    </MONANS>
+    
+    <KHACHHANGS>
+        <KHACHHANG maKH="KH0001">
+            <hoTen>Nguyễn Hoàng Duy</hoTen>
+            <diaChi>2 - Nguyễn Đình Chiểu</diaChi>
+            <SDT>0011223344</SDT>     
+            <email>hoangduy@ntu.edu.vn</email>        
+        </KHACHHANG>
+        <KHACHHANG maKH="KH0002">
+            <hoTen>Nguyễn Thị Hồng Vân</hoTen> 
+            <diaChi>3 - Lê Lợi, Nha Trang, Khánh Hòa</diaChi>
+            <SDT>0123456789</SDT> <email>nguyenthihongvan@ntu.edu.vn</email>
+        </KHACHHANG> 
+        <KHACHHANG maKH="KH0003"> 
+            <hoTen>Trần Văn Quân</hoTen> 
+            <diaChi>4 - Ngô Đức Kế, Nha Trang, Khánh Hòa</diaChi> 
+            <SDT>0987654321</SDT> <email>tranvanquan@ntu.edu.vn</email> 
+        </KHACHHANG> 
+        <KHACHHANG maKH="KH0004"> 
+            <hoTen>Phan Thị Thanh Hương</hoTen> 
+            <diaChi>5 - Yersin, Nha Trang, Khánh Hòa</diaChi> 
+            <SDT>0912345678</SDT> 
+            <email>phanthithanhhuong@ntu.edu.vn</email> 
+        </KHACHHANG> 
+        <KHACHHANG maKH="KH0005"> 
+            <hoTen>Nguyễn Thị Quỳnh Trang</hoTen> 
+            <diaChi>6 - Trần Phú, Nha Trang, Khánh Hòa</diaChi> 
+            <SDT>0987654321</SDT> 
+            <email>nguyenthiquynhtrang@ntu.edu.vn</email> 
+        </KHACHHANG>
+    </KHACHHANGS> 
+    
+    <NHANVIENS>
+        <NHANVIEN maNV="NV0001">
+            <hoTenNV>Nguyễn Hoài Duy</hoTenNV>
+            <SDT>012233445</SDT>
+            <email>duy.nv@gmail.com</email>
+        </NHANVIEN>
+        <NHANVIEN maNV="NV0002">
+            <hoTenNV>Trần Lê Quang Minh</hoTenNV>
+            <SDT>037373383</SDT>
+            <email>minh.nv@gmail.com</email>
+        </NHANVIEN>
+    </NHANVIENS>
+    
+    
+    <HOADONS>
+        <HOADON maHD="HD0001" maKH="KH0001" maNV="NV0001">
+            <ngayDH>2023-04-04</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0002" maKH="KH0002" maNV="NV0002">
+            <ngayDH>2023-04-04</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0003" maKH="KH0002" maNV="NV0002">
+            <ngayDH>2023-04-05</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0004" maKH="KH0003" maNV="NV0001">
+            <ngayDH>2023-04-05</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0005" maKH="KH0001" maNV="NV0001">
+            <ngayDH>2023-04-05</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0006" maKH="KH0002" maNV="NV0001">
+            <ngayDH>2023-04-05</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0007" maKH="KH0004" maNV="NV0002">
+            <ngayDH>2023-04-06</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0008" maKH="KH0005" maNV="NV0002">
+            <ngayDH>2023-04-07</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0009" maKH="KH0004" maNV="NV0002">
+            <ngayDH>2023-04-07</ngayDH>
+        </HOADON>
+        <HOADON maHD="HD0010" maKH="KH0002" maNV="NV0001">
+            <ngayDH>2023-04-07</ngayDH>
+        </HOADON>
+    </HOADONS>
+    
+    <CTHOADONS>
+        <CTHOADON maHD="HD0001" maMonAn="MA0005">
+            <soLuong>2</soLuong>
+            <diaChiGH>2 - Nguyễn Đình Chiểu</diaChiGH>
+            <thanhTien>58000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0002" maMonAn="MA0004">
+            <soLuong>3</soLuong>
+            <diaChiGH>3 - Lê Lợi, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>207000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0003" maMonAn="MA0002">
+            <soLuong>1</soLuong>
+            <diaChiGH>3 - Lê Lợi, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>21000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0004" maMonAn="MA0001">
+            <soLuong>1</soLuong>
+            <diaChiGH>4 - Ngô Đức Kế, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>32000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0005" maMonAn="MA0002">
+            <soLuong>2</soLuong>
+            <diaChiGH>2 - Nguyễn Đình Chiểu</diaChiGH>
+            <thanhTien>42000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0006" maMonAn="MA0003">
+            <soLuong>4</soLuong>
+            <diaChiGH>3 - Lê Lợi, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>140000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0007" maMonAn="MA0005">
+            <soLuong>2</soLuong>
+            <diaChiGH>5 - Yersin, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>58000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0008" maMonAn="MA0004">
+            <soLuong>2</soLuong>
+            <diaChiGH>6 - Trần Phú, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>58000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0009" maMonAn="MA0002">
+            <soLuong>1</soLuong>
+            <diaChiGH>5 - Yersin, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>21000</thanhTien>
+        </CTHOADON>
+        <CTHOADON maHD="HD0010" maMonAn="MA0001">
+            <soLuong>4</soLuong>
+            <diaChiGH>3 - Lê Lợi, Nha Trang, Khánh Hòa</diaChiGH>
+            <thanhTien>128000</thanhTien>
+        </CTHOADON>
+    </CTHOADONS>
+</QLBDA>

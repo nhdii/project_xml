@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT QLBDA (MONAN+, KHACHHANG+, NHANVIEN+, HOADON+, CTHOADON+)>
+
+<!ELEMENT MONAN (tenMon, gia, moTa)>
+    <!ATTLIST MONAN maMonAN CDATA #REQUIRED>
+
+<!ELEMENT tenMon (#PCDATA)>
+<!ELEMENT gia (#PCDATA)>
+<!ELEMENT moTa (#PCDATA)>
+
+<!ELEMENT KHACHHANG (hoTen, diaChi, SDT, email)>
+    <!ATTLIST KHACHHANG maKH CDATA #REQUIRED>
+
+<!ELEMENT hoTen (#PCDATA)>
+<!ELEMENT diaChi (#PCDATA)>
+<!ELEMENT SDT (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!ELEMENT NHANVIEN (hoTenNV, chucVu, SDT, email)>
+    <!ATTLIST NHANVIEN maNV CDATA #REQUIRED>
+
+<!ELEMENT hoTenNV (#PCDATA)>
+<!ELEMENT chucVu (#PCDATA)>
+
+<!ELEMENT HOADON (ngayDH)>
+    <!ATTLIST HOADON maHD CDATA #REQUIRED
+                      maKH CDATA #REQUIRED
+                      maNV CDATA #REQUIRED>
+
+<!ELEMENT ngayDH (#PCDATA)>
+
+<!ELEMENT CTHOADON (soLuong, diaChiGH, thanhTien)>
+    <!ATTLIST CTHOADON maHD CDATA #REQUIRED
+                        maMonAn CDATA #REQUIRED>
+
+<!ELEMENT soLuong (#PCDATA)>
+<!ELEMENT diaChiGH (#PCDATA)>
+<!ELEMENT thanhTien (#PCDATA)>

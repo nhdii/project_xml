@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="QLBDA">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MONANS">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="MONAN" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="tenMon" type="xs:string"/>
+                                        <xs:element name="gia" type="xs:decimal"/>
+                                        <xs:element name="moTa" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="maMonAn" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="KHACHHANGS">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="KHACHHANG" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="hoTen" type="xs:string"/>
+                                        <xs:element name="diaChi" type="xs:string"/>
+                                        <xs:element name="SDT" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="maKH" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="NHANVIENS">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="NHANVIEN" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="hoTenNV" type="xs:string"/>
+                                        <xs:element name="SDT" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="maNV" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="HOADONS">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="HOADON" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ngayDH" type="xs:date"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="maHD" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                    <xs:attribute name="maKH" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                    <xs:attribute name="maNV" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="CTHOADONS">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CTHOADON" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="soLuong" type="xs:unsignedByte"/>
+                                        <xs:element name="diaChiGH" type="xs:string"/>
+                                        <xs:element name="thanhTien" type="xs:decimal"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="maHD" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                    <xs:attribute name="maMonAn" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[A-Z]{2}[0-9]{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:key name="MonAn_Key">
+            <xs:selector xpath="QLBDA/MONANS/MONAN"/>
+            <xs:field xpath="maMonAn"/>
+        </xs:key>
+        <xs:key name="KH_Key">
+            <xs:selector xpath="QLBDA/KHACHHANGS/KHACHHANG"/>
+            <xs:field xpath="maKH"/>
+        </xs:key>
+        <xs:key name="NV_Key">
+            <xs:selector xpath="QLBDA/NHANVIENS/NHANVIEN"/>
+            <xs:field xpath="maNV"/>
+        </xs:key>
+        <xs:key name="HD_Key">
+            <xs:selector xpath="QLBDA/HOADONS/HOADON"/>
+            <xs:field xpath="maHD"/>
+        </xs:key>
+        <xs:keyref name="MonAnKeyref" refer="MonAn_Key">
+            <xs:selector xpath="QLBDA/CTHOADONS/CTHOADON"/>
+            <xs:field xpath="maMonAn"/>
+        </xs:keyref>
+        <xs:keyref name="KHKeyref" refer="KH_Key">
+            <xs:selector xpath="QLBDA/HOADONS/HOADON"/>
+            <xs:field xpath="maKH"/>
+        </xs:keyref>
+        <xs:keyref name="NVKeyref" refer="NV_Key">
+            <xs:selector xpath="QLBDA/HOADONS/HOADON"/>
+            <xs:field xpath="maNV"/>
+        </xs:keyref>
+        <xs:keyref name="HDKeyref" refer="HD_Key">
+            <xs:selector xpath="QLBDA/CTHOADONS/CTHOADON"/>
+            <xs:field xpath="maHD"/>
+        </xs:keyref>
+    </xs:element>
+</xs:schema>
