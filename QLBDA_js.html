@@ -24,10 +24,26 @@
                     <th>Tên món ăn</th>
                     <th>Giá</th>
                     <th>Mô tả</th>
+                    <th>Xóa</th>
+                    <th>Sửa</th>
+              
                 </tr>
             </thead>
             <tbody id="monans-table"></tbody>
         </table>
+
+        <h3>Thêm mới món ăn</h3>
+        <form id="them-mon-form">
+          <label for="maMonAn">Mã món ăn:</label><br>
+          <input type="text" id="maMonAn" name="maMonAn"><br>
+          <label for="tenMon">Tên món:</label><br>
+          <input type="text" id="tenMon" name="tenMon"><br>
+          <label for="gia">Giá:</label><br>
+          <input type="text" id="gia" name="gia"><br>
+          <label for="moTa">Mô tả:</label><br>
+          <textarea id="moTa" name="moTa"></textarea><br><br>
+          <input type="button" value="Thêm" onclick="themMonAn()">
+        </form>
 
         <!-- Tạo bảng hiển thị danh sách khách hàng -->
         <h3>Danh sách khách hàng</h3>
@@ -89,6 +105,8 @@
 
         <!-- script javascrip -->
         <script>
+          
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
@@ -116,6 +134,7 @@
                   tenMonCell.innerHTML = monAns[i].getElementsByTagName("tenMon")[0].childNodes[0].nodeValue;
                   giaCell.innerHTML = monAns[i].getElementsByTagName("gia")[0].childNodes[0].nodeValue;
                   moTaCell.innerHTML = monAns[i].getElementsByTagName("moTa")[0].childNodes[0].nodeValue;
+                  themNutXoa(row, monAns[i].maMonAn);
                 }
 
                 //Hiển thị bảng khách hàng
@@ -186,6 +205,70 @@
                   thanhTienCell.innerHTML = CTHoaDons[i].getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue;
                 }
             }
+
+            function themMonAn() {
+              var maMonAn = document.getElementById("maMonAn").value;
+              var tenMon = document.getElementById("tenMon").value;
+              var gia = document.getElementById("gia").value;
+              var moTa = document.getElementById("moTa").value;
+
+              // Lưu thông tin món ăn vào localStorage
+              var monAnMoi = {
+                maMonAn: maMonAn,
+                tenMon: tenMon,
+                gia: gia,
+                moTa: moTa
+              };
+              var monAns = JSON.parse(localStorage.getItem("monAns")) || [];
+              monAns.push(monAnMoi);
+              localStorage.setItem("monAns", JSON.stringify(monAns));
+
+              // Thêm món ăn mới vào bảng
+              var monans_table = document.getElementById("monans-table");
+              var row = monans_table.insertRow();
+              var maMonAnCell = row.insertCell(0);
+              var tenMonCell = row.insertCell(1);
+              var giaCell = row.insertCell(2);
+              var moTaCell = row.insertCell(3);
+              maMonAnCell.innerHTML = maMonAn;
+              tenMonCell.innerHTML = tenMon;
+              giaCell.innerHTML = gia;
+              moTaCell.innerHTML = moTa;
+            }
+
+            // Lấy thông tin món ăn từ localStorage khi tải lại trang web
+            window.onload = function() {
+              var monAns = JSON.parse(localStorage.getItem("monAns")) || [];
+              var monans_table = document.getElementById("monans-table");
+              for (var i = 0; i < monAns.length; i++) {
+                var row = monans_table.insertRow();
+                var maMonAnCell = row.insertCell(0);
+                var tenMonCell = row.insertCell(1);
+                var giaCell = row.insertCell(2);
+                var moTaCell = row.insertCell(3);
+                maMonAnCell.innerHTML = monAns[i].maMonAn;
+                tenMonCell.innerHTML = monAns[i].tenMon;
+                giaCell.innerHTML = monAns[i].gia;
+                moTaCell.innerHTML = monAns[i].moTa;
+                themNutXoa(row, monAns[i].maMonAn);
+              }
+            }; 
+
+            function themNutXoa(row, maMonAn) {
+  var cell = row.insertCell();
+  var btn = document.createElement("BUTTON");
+  btn.innerHTML = "Xóa";
+  btn.onclick = function() {
+    var monAns = JSON.parse(localStorage.getItem("monAns")) || [];
+    monAns = monAns.filter(function(monAn) {
+      return monAn.maMonAn !== maMonAn;
+    });
+    localStorage.setItem("monAns", JSON.stringify(monAns));
+    row.parentNode.removeChild(row);
+  };
+  cell.appendChild(btn);
+}
+
 
         </script>
     </body>
