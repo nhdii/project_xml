@@ -10,11 +10,12 @@
           padding: 5px;
         }
         #first-tr{
-          background-color: grey; 
+          background-color: #ADFF2F; 
         }
   </style>
     </head>
     <body>
+        <!-- Tạo bảng hiển thị món ăn -->
         <h3>Danh sách món ăn</h3>
         <table>
             <thead>
@@ -27,7 +28,66 @@
             </thead>
             <tbody id="monans-table"></tbody>
         </table>
+
+        <!-- Tạo bảng hiển thị danh sách khách hàng -->
+        <h3>Danh sách khách hàng</h3>
+        <table>
+            <thead>
+                <tr id = "first-tr">
+                    <th>Mã khách hàng</th>
+                    <th>Họ tên khách hàng</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="khachHangs-table"></tbody>
+        </table>
        
+        <!-- Tạo bảng hiển thị danh sách nhân viên -->
+        <h3>Danh sách nhân viên</h3>
+        <table>
+            <thead>
+                <tr id = "first-tr">
+                    <th>Mã nhân viên</th>
+                    <th>Họ tên nhân viên</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody id="nhanViens-table"></tbody>
+        </table>
+
+        <!-- Tạo bảng hiển thị danh sách hóa đơn -->
+        <h3>Danh sách hóa đơn</h3>
+        <table>
+            <thead>
+                <tr id = "first-tr">
+                    <th>Mã hóa đơn</th>
+                    <th>Mã khách hàng</th>
+                    <th>Mã nhân viên</th>
+                    <th>Ngày đặt hàng</th>
+                </tr>
+            </thead>
+            <tbody id="hoaDons-table"></tbody>
+        </table>
+
+        <!-- Tạo bảng hiển thị danh sách chi tiết hóa đơn -->
+        <h3>Danh sách chi tiết hóa đơn</h3>
+        <table>
+            <thead>
+                <tr id = "first-tr">
+                    <th>Mã hóa đơn</th>
+                    <th>Mã món ăn</th>
+                    <th>Số lượng</th>
+                    <th>Địa chỉ giao hàng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody id="CTHoaDons-table"></tbody>
+        </table>
+
+        <!-- script javascrip -->
         <script>
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -39,8 +99,11 @@
             xhttp.send();
             
             function myFunction(xml){
-                var xmlDoc, monAns, monans_table;
+                var xmlDoc;
                 xmlDoc = xml.responseXML;
+
+                //Hiển thị bảng Món ăn 
+                var monAns, monans_table;
                 monAns = xmlDoc.getElementsByTagName("MONAN");
                 monans_table = document.getElementById("monans-table");
                 for(let i = 0; i < monAns.length; i++){
@@ -55,6 +118,73 @@
                   moTaCell.innerHTML = monAns[i].getElementsByTagName("moTa")[0].childNodes[0].nodeValue;
                 }
 
+                //Hiển thị bảng khách hàng
+                var khachHangs, khachHangs_table;
+                khachHangs = xmlDoc.getElementsByTagName("KHACHHANG");
+                khachHangs_table = document.getElementById("khachHangs-table");
+                for(let i = 0; i < khachHangs.length; i++){
+                  var row = khachHangs_table.insertRow();
+                  var maKHCell = row.insertCell(0);
+                  var hoTenKHCell = row.insertCell(1);
+                  var diaChiCell = row.insertCell(2);
+                  var sdtCell = row.insertCell(3);
+                  var emailCell = row.insertCell(4);
+                  maKHCell.innerHTML = khachHangs[i].getAttribute("maKH");
+                  hoTenKHCell.innerHTML = khachHangs[i].getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                  diaChiCell.innerHTML = khachHangs[i].getElementsByTagName("diaChi")[0].childNodes[0].nodeValue;
+                  sdtCell.innerHTML = khachHangs[i].getElementsByTagName("SDT")[0].childNodes[0].nodeValue;
+                  emailCell.innerHTML = khachHangs[i].getElementsByTagName("email")[0].childNodes[0].nodeValue;
+                }
+
+                //Hiển thị bảng nhân viên
+                var nhanViens, nhanViens_table;
+                nhanViens = xmlDoc.getElementsByTagName("NHANVIEN");
+                nhanViens_table = document.getElementById("nhanViens-table");
+                for(let i = 0; i < nhanViens.length; i++){
+                  var row = nhanViens_table.insertRow();
+                  var maNVCell = row.insertCell(0);
+                  var hoTenNVCell = row.insertCell(1);
+                  var sdtCell = row.insertCell(2);
+                  var emailCell = row.insertCell(3);
+                  maNVCell.innerHTML = nhanViens[i].getAttribute("maNV");
+                  hoTenNVCell.innerHTML = nhanViens[i].getElementsByTagName("hoTenNV")[0].childNodes[0].nodeValue;
+                  sdtCell.innerHTML = nhanViens[i].getElementsByTagName("SDT")[0].childNodes[0].nodeValue;
+                  emailCell.innerHTML = nhanViens[i].getElementsByTagName("email")[0].childNodes[0].nodeValue;
+                }
+
+                //Hiển thị bảng hóa đơn
+                var hoaDons, hoaDons_table;
+                hoaDons = xmlDoc.getElementsByTagName("HOADON");
+                hoaDons_table = document.getElementById("hoaDons-table");
+                for(let i = 0; i < hoaDons.length; i++){
+                  var row = hoaDons_table.insertRow();
+                  var maHDCell = row.insertCell(0);
+                  var maKHCell = row.insertCell(1);
+                  var maNVCell = row.insertCell(2);
+                  var ngayDHCell = row.insertCell(3);
+                  maHDCell.innerHTML = hoaDons[i].getAttribute("maHD");
+                  maKHCell.innerHTML = hoaDons[i].getAttribute("maKH");
+                  maNVCell.innerHTML = hoaDons[i].getAttribute("maNV");
+                  ngayDHCell.innerHTML = hoaDons[i].getElementsByTagName("ngayDH")[0].childNodes[0].nodeValue;
+                }
+
+                //Hiển thị chi tiết hóa đơn
+                var CTHoaDons, CTHoaDons_table;
+                CTHoaDons = xmlDoc.getElementsByTagName("CTHOADON");
+                CTHoaDons_table = document.getElementById("CTHoaDons-table");
+                for(let i = 0; i < CTHoaDons.length; i++){
+                  var row = CTHoaDons_table.insertRow();
+                  var maHDCell = row.insertCell(0);
+                  var maMACell = row.insertCell(1);
+                  var soLuongCell = row.insertCell(2);
+                  var diaChiGHCell = row.insertCell(3);
+                  var thanhTienCell = row.insertCell(4);
+                  maHDCell.innerHTML = CTHoaDons[i].getAttribute("maHD");
+                  maMACell.innerHTML = CTHoaDons[i].getAttribute("maMonAn");
+                  soLuongCell.innerHTML = CTHoaDons[i].getElementsByTagName("soLuong")[0].childNodes[0].nodeValue;
+                  diaChiGHCell.innerHTML = CTHoaDons[i].getElementsByTagName("diaChiGH")[0].childNodes[0].nodeValue;
+                  thanhTienCell.innerHTML = CTHoaDons[i].getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue;
+                }
             }
 
         </script>
