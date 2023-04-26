@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Bán đồ ăn Online</title>
+        <style>
+        table, th, td {
+          border: 2px solid black;
+          border-collapse: collapse;
+          padding: 5px;
+        }
+        #first-tr{
+          background-color: grey; 
+        }
+  </style>
+    </head>
+    <body>
+        <h3>Danh sách món ăn</h3>
+        <table>
+            <thead>
+                <tr id = "first-tr">
+                    <th>Mã món ăn</th>
+                    <th>Tên món ăn</th>
+                    <th>Giá</th>
+                    <th>Mô tả</th>
+                </tr>
+            </thead>
+            <tbody id="monans-table"></tbody>
+        </table>
+       
+        <script>
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                myFunction(this);
+              }
+            };
+            xhttp.open("GET", "instance1.xml", true);
+            xhttp.send();
+            
+            function myFunction(xml){
+                var xmlDoc, monAns, monans_table;
+                xmlDoc = xml.responseXML;
+                monAns = xmlDoc.getElementsByTagName("MONAN");
+                monans_table = document.getElementById("monans-table");
+                for(let i = 0; i < monAns.length; i++){
+                  var row = monans_table.insertRow();
+                  var maMonAnCell = row.insertCell(0);
+                  var tenMonCell = row.insertCell(1);
+                  var giaCell = row.insertCell(2);
+                  var moTaCell = row.insertCell(3);
+                  maMonAnCell.innerHTML = monAns[i].getAttribute("maMonAn");
+                  tenMonCell.innerHTML = monAns[i].getElementsByTagName("tenMon")[0].childNodes[0].nodeValue;
+                  giaCell.innerHTML = monAns[i].getElementsByTagName("gia")[0].childNodes[0].nodeValue;
+                  moTaCell.innerHTML = monAns[i].getElementsByTagName("moTa")[0].childNodes[0].nodeValue;
+                }
+
+            }
+
+        </script>
+    </body>
+</html>
