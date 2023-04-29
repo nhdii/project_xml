@@ -24,14 +24,16 @@
                     <th>Tên món ăn</th>
                     <th>Giá</th>
                     <th>Mô tả</th>
-              
+                    <th></th>
+                    <th></th>      
                 </tr>
             </thead>
             <tbody id="monans-table"></tbody>
           </table>
-
+          <!-- Tạo nút thêm món ăn mới -->
           <button onclick="themMonAn()">Thêm món ăn</button>
 
+          <!-- Form nhập món ăn mới (sử dụng cho hàm javascript lưu dữ liệu vào localStorage) -->
         <!-- <h3>Thêm mới món ăn</h3>
         <form id="them-mon-form">
           <label for="maMonAn">Mã món ăn:</label><br>
@@ -45,7 +47,6 @@
           <input type="button" value="Thêm" onclick="themMonAn()">
         </form> -->
 
-<!-- #region các bảng khacs-->
         <!-- Tạo bảng hiển thị danh sách khách hàng -->
         <h3>Danh sách khách hàng</h3>
         <table>
@@ -60,6 +61,8 @@
             </thead>
             <tbody id="khachHangs-table"></tbody>
         </table>
+        <!-- Tạo nút thêm khách hàng -->
+        <button onclick="themKH()">Thêm khách hàng</button>
        
         <!-- Tạo bảng hiển thị danh sách nhân viên -->
         <h3>Danh sách nhân viên</h3>
@@ -74,6 +77,10 @@
             </thead>
             <tbody id="nhanViens-table"></tbody>
         </table>
+        
+        <!-- Tạo nút thêm nhân viên -->
+        <button onclick="themNV()">Thêm nhân viên</button>
+
 
         <!-- Tạo bảng hiển thị danh sách hóa đơn -->
         <h3>Danh sách hóa đơn</h3>
@@ -89,6 +96,10 @@
             <tbody id="hoaDons-table"></tbody>
         </table>
 
+        <!-- Tạo nút thêm hóa đơn -->
+        <button onclick="themHD()">Thêm hóa đơn</button>
+
+
         <!-- Tạo bảng hiển thị danh sách chi tiết hóa đơn -->
         <h3>Danh sách chi tiết hóa đơn</h3>
         <table>
@@ -103,11 +114,9 @@
             </thead>
             <tbody id="CTHoaDons-table"></tbody>
         </table>
-<!-- #endregion -->
         
         <!-- script javascrip -->
         <script>
-            var xmlDoc;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
@@ -117,13 +126,12 @@
             xhttp.open("GET", "instance1.xml", true);
             xhttp.send();
             
-            var monans_table;
             function myFunction(xml){
                 var xmlDoc;
                 xmlDoc = xml.responseXML;
 
                 //Hiển thị bảng Món ăn 
-                var monAns;
+                var monAns, monans_table;
                 monAns = xmlDoc.getElementsByTagName("MONAN");
                 monans_table = document.getElementById("monans-table");
                 for(let i = 0; i < monAns.length; i++){
@@ -136,13 +144,10 @@
                   tenMonCell.innerHTML = monAns[i].getElementsByTagName("tenMon")[0].childNodes[0].nodeValue;
                   giaCell.innerHTML = monAns[i].getElementsByTagName("gia")[0].childNodes[0].nodeValue;
                   moTaCell.innerHTML = monAns[i].getElementsByTagName("moTa")[0].childNodes[0].nodeValue;
-                  // xoaMonAn(row, monAns[i].maMonAn);
                   xoaMonAn(row, monAns[i].maMonAn);
-                  
-                  
+                  suaMonAn(row, monAns[i]);
                 }
 
-//#region script của các bảng khác
                 //Hiển thị bảng khách hàng
                 var khachHangs, khachHangs_table;
                 khachHangs = xmlDoc.getElementsByTagName("KHACHHANG");
@@ -159,6 +164,8 @@
                   diaChiCell.innerHTML = khachHangs[i].getElementsByTagName("diaChi")[0].childNodes[0].nodeValue;
                   sdtCell.innerHTML = khachHangs[i].getElementsByTagName("SDT")[0].childNodes[0].nodeValue;
                   emailCell.innerHTML = khachHangs[i].getElementsByTagName("email")[0].childNodes[0].nodeValue;
+                  xoaKH(row, khachHangs[i].maKH);
+                  suaKH(row, khachHangs[i]);
                 }
 
                 //Hiển thị bảng nhân viên
@@ -175,6 +182,8 @@
                   hoTenNVCell.innerHTML = nhanViens[i].getElementsByTagName("hoTenNV")[0].childNodes[0].nodeValue;
                   sdtCell.innerHTML = nhanViens[i].getElementsByTagName("SDT")[0].childNodes[0].nodeValue;
                   emailCell.innerHTML = nhanViens[i].getElementsByTagName("email")[0].childNodes[0].nodeValue;
+                  xoaNV(row, nhanViens[i].maNV);
+                  suaNV(row, nhanViens[i]);
                 }
 
                 //Hiển thị bảng hóa đơn
@@ -191,6 +200,8 @@
                   maKHCell.innerHTML = hoaDons[i].getAttribute("maKH");
                   maNVCell.innerHTML = hoaDons[i].getAttribute("maNV");
                   ngayDHCell.innerHTML = hoaDons[i].getElementsByTagName("ngayDH")[0].childNodes[0].nodeValue;
+                  xoaHD(row, hoaDons[i].maHD)
+                  suaHD(row, hoaDons[i]);
                 }
 
                 //Hiển thị chi tiết hóa đơn
@@ -210,7 +221,6 @@
                   diaChiGHCell.innerHTML = CTHoaDons[i].getElementsByTagName("diaChiGH")[0].childNodes[0].nodeValue;
                   thanhTienCell.innerHTML = CTHoaDons[i].getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue;
                 }
-//#endregion
             }
 
 //#region Hàm javascript thêmm, xóa món ăn, món ăn vừa thêm được lưu vào localStorage của trình duyệt
@@ -280,6 +290,7 @@
 //#endregion
 
 //#region Hàm thêm xóa món ăn cách 2
+
             function themMonAn(row, maMonAn) {
               var monans_table = document.getElementById("monans-table");
               var row = monans_table.insertRow();
@@ -288,6 +299,7 @@
               var giaCell = row.insertCell(2);
               var moTaCell = row.insertCell(3);
               var xoaCell = row.insertCell(4);
+              var suaCell = row.insertCell(5);
               
               // Nhập thông tin cho món ăn mới
               maMonAnCell.innerHTML = prompt("Nhập mã món ăn:");
@@ -300,9 +312,11 @@
               xoaBtn.onclick = function() {
                 row.remove();
               };
-              xoaCell.appendChild(xoaBtn);
+              xoaCell.appendChild(xoaBtn);  
+              
             }
 
+            //hàm xóa món ăn
             function xoaMonAn(row, maMonAn) {
               var xoaCell = row.insertCell();
               var xoaBtn = document.createElement("BUTTON");
@@ -313,7 +327,225 @@
               }
               xoaCell.appendChild(xoaBtn);
             }
+
+            //hàm chỉnh sửa món ăn
+            function suaMonAn(row, monAn) {
+            var suaCell = row.insertCell();
+            var suaBtn = document.createElement("BUTTON");
+            suaBtn.innerHTML = "Sửa";
+            
+            suaBtn.onclick = function() {
+              var maMonAn = prompt("Nhập mã món ăn:", monAn.getAttribute("maMonAn"));
+              var tenMon = prompt("Nhập tên món ăn:", monAn.getElementsByTagName("tenMon")[0].childNodes[0].nodeValue);
+              var gia = prompt("Nhập giá:", monAn.getElementsByTagName("gia")[0].childNodes[0].nodeValue);
+              var moTa = prompt("Nhập mô tả:", monAn.getElementsByTagName("moTa")[0].childNodes[0].nodeValue);
+              
+              monAn.setAttribute("maMonAn", maMonAn);
+              monAn.getElementsByTagName("tenMon")[0].childNodes[0].nodeValue = tenMon;
+              monAn.getElementsByTagName("gia")[0].childNodes[0].nodeValue = gia;
+              monAn.getElementsByTagName("moTa")[0].childNodes[0].nodeValue = moTa;
+              
+              row.cells[0].innerHTML = maMonAn;
+              row.cells[1].innerHTML = tenMon;
+              row.cells[2].innerHTML = gia;
+              row.cells[3].innerHTML = moTa;
+            };
+            
+            suaCell.appendChild(suaBtn);
+          }
+
 //#endregion
+
+//#region Hàm thêm, xóa khách hàng
+
+            function themKH(row, maKH){
+              var khachHangs_table = document.getElementById("khachHangs-table");
+              var row = khachHangs_table.insertRow();
+              var maKHCell = row.insertCell(0);
+              var hoTenKHCell = row.insertCell(1);
+              var diaChiCell = row.insertCell(2);
+              var sdtCell = row.insertCell(3);
+              var emailCell = row.insertCell(4);
+              var xoaCell = row.insertCell(5);
+
+              //Nhập thông tin cho khách hàng mới
+              maKHCell.innerHTML = prompt("Nhập mã khách hàng");
+              hoTenKHCell.innerHTML = prompt("Nhập họ tên khách hàng");
+              diaChiCell.innerHTML = prompt("Nhập địa chỉ khách hàng");
+              sdtCell.innerHTML = prompt("Nhập số điện thoại");
+              emailCell.innerHTML = prompt("Nhập email của khách hàng");
+
+              var xoaBtn = document.createElement("BUTTON");
+              xoaBtn.innerHTML = "Xóa";
+              xoaBtn.onclick = function(){
+                row.remove();
+              };
+              xoaCell.appendChild(xoaBtn);
+    
+            }
+
+            function xoaKH(row, maKH){
+              var xoaCell = row.insertCell();
+              var xoaBtn = document.createElement("BUTTON");
+              xoaBtn.innerHTML = "Xóa";
+
+              xoaBtn.onclick = function(){
+                row.remove();
+              }
+              xoaCell.appendChild(xoaBtn);
+            }
+
+            //hàm chỉnh sửa khách hàng
+            function suaKH(row, khachHang) {
+            var suaCell = row.insertCell();
+            var suaBtn = document.createElement("BUTTON");
+            suaBtn.innerHTML = "Sửa";
+            
+            suaBtn.onclick = function() {
+              var maKH = prompt("Nhập mã khách hàng:", khachHang.getAttribute("maKH"));
+              var hoTen = prompt("Nhập họ tên khách hàng:", khachHang.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue);
+              var diaChi= prompt("Nhập địa chỉ:", khachHang.getElementsByTagName("diaChi")[0].childNodes[0].nodeValue);
+              var SDT = prompt("Nhập số điện thoại:", khachHang.getElementsByTagName("SDT")[0].childNodes[0].nodeValue);
+              var email = prompt("Nhập email:", khachHang.getElementsByTagName("email")[0].childNodes[0].nodeValue);
+
+              khachHang.setAttribute("maKH", maKH);
+              khachHang.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue = hoTen;
+              khachHang.getElementsByTagName("diaChi")[0].childNodes[0].nodeValue = diaChi;
+              khachHang.getElementsByTagName("SDT")[0].childNodes[0].nodeValue = SDT;
+              khachHang.getElementsByTagName("email")[0].childNodes[0].nodeValue = email;
+
+              row.cells[0].innerHTML = maKH;
+              row.cells[1].innerHTML = hoTen;
+              row.cells[2].innerHTML = diaChi;
+              row.cells[3].innerHTML = SDT;
+              row.cells[4].innerHTML = email;
+            };     
+            suaCell.appendChild(suaBtn);
+          }
+//#endregion
+        
+//#region Hàm thêm, xóa nhân viên
+            function themNV(row, maNV){
+              var nhanViens_table = document.getElementById("nhanViens-table");
+              var row = nhanViens_table.insertRow();
+              var maNVCell = row.insertCell(0);
+              var hoTenNVCell = row.insertCell(1);
+              var sdtCell = row.insertCell(2);
+              var emailCell = row.insertCell(3);
+              var xoaCell = row.insertCell(4);
+
+              //Nhập thông tin cho khách hàng mới
+              maNVCell.innerHTML = prompt("Nhập mã nhân viên");
+              hoTenNVCell.innerHTML = prompt("Nhập họ tên nhân viên");
+              sdtCell.innerHTML = prompt("Nhập số điện thoại");
+              emailCell.innerHTML = prompt("Nhập email");
+
+              var xoaBtn = document.createElement("BUTTON");
+              xoaBtn.innerHTML = "Xóa";
+              xoaBtn.onclick = function(){
+                row.remove();
+              };
+              xoaCell.appendChild(xoaBtn);
+            }
+
+            function xoaNV(row, maNV){
+              var xoaCell = row.insertCell();
+              var xoaBtn = document.createElement("BUTTON");
+              xoaBtn.innerHTML = "Xóa";
+
+              xoaBtn.onclick = function(){
+                row.remove();
+              }
+              xoaCell.appendChild(xoaBtn);
+            }
+
+            //hàm chỉnh sửa nhân viên
+            function suaNV(row, nhanVien) {
+            var suaCell = row.insertCell();
+            var suaBtn = document.createElement("BUTTON");
+            suaBtn.innerHTML = "Sửa";
+            
+            suaBtn.onclick = function() {
+              var maNV = prompt("Nhập mã nhân viên:", nhanVien.getAttribute("maNV"));
+              var hoTenNV = prompt("Nhập họ tên nhân viên:", nhanVien.getElementsByTagName("hoTenNV")[0].childNodes[0].nodeValue);
+              var SDT = prompt("Nhập số điện thoại:", nhanVien.getElementsByTagName("SDT")[0].childNodes[0].nodeValue);
+              var email = prompt("Nhập email:", nhanVien.getElementsByTagName("email")[0].childNodes[0].nodeValue);
+
+              nhanVien.setAttribute("maNV", maNV);
+              nhanVien.getElementsByTagName("hoTenNV")[0].childNodes[0].nodeValue = hoTenNV;
+              nhanVien.getElementsByTagName("SDT")[0].childNodes[0].nodeValue = SDT;
+              nhanVien.getElementsByTagName("email")[0].childNodes[0].nodeValue = email;
+
+              row.cells[0].innerHTML = maNV;
+              row.cells[1].innerHTML = hoTenNV;
+              row.cells[2].innerHTML = SDT;
+              row.cells[3].innerHTML = email;
+            };     
+            suaCell.appendChild(suaBtn);
+          }
+//#endregion
+
+//#region Hàm thêm, xóa hóa đơn
+          function themHD(row, maHD){
+            var hoaDons_table = document.getElementById("hoaDons-table");
+            var row = hoaDons_table.insertRow();
+            var maHDCell = row.insertCell(0);
+            var maKHCell = row.insertCell(1);
+            var maNVCell = row.insertCell(2);
+            var ngayDHCell = row.insertCell(3);
+            var xoaCell = row.insertCell(4);
+
+            //Nhập thông tin cho khách hàng mới
+            maHDCell.innerHTML = prompt("Nhập mã hóa đơn");
+            maKHCell.innerHTML = prompt("Nhập mã khách hàng");
+            maNVCell.innerHTML = prompt("Nhập mã nhân viên");
+            ngayDHCell.innerHTML = prompt("Nhập ngày đặt hàng");
+
+            var xoaBtn = document.createElement("BUTTON");
+            xoaBtn.innerHTML = "Xóa";
+            xoaBtn.onclick = function(){
+              row.remove();
+            };
+            xoaCell.appendChild(xoaBtn);
+          }
+
+          function xoaHD(row, maHD){
+            var xoaCell = row.insertCell();
+            var xoaBtn = document.createElement("BUTTON");
+            xoaBtn.innerHTML = "Xóa";
+
+            xoaBtn.onclick = function(){
+              row.remove();
+            }
+            xoaCell.appendChild(xoaBtn);
+          }
+
+          //hàm chỉnh sửa hóa đơn
+          function suaHD(row, hoaDon) {
+          var suaCell = row.insertCell();
+          var suaBtn = document.createElement("BUTTON");
+          suaBtn.innerHTML = "Sửa";
+          
+          suaBtn.onclick = function() {
+            var maHD = prompt("Nhập mã hóa đơn:", hoaDon.getAttribute("maHD"));
+            var maKH = prompt("Nhập mã khách hàng:", hoaDon.getAttribute("maKH"));
+            var maNV = prompt("Nhập mã nhân viên:", hoaDon.getAttribute("maNV"));
+            var ngayDH = prompt("Nhập ngày đặt món:", hoaDon.getElementsByTagName("ngayDH")[0].childNodes[0].nodeValue);
+
+            hoaDon.setAttribute("maHD", maHD);
+            hoaDon.setAttribute("maKH", maKH);
+            hoaDon.setAttribute("maNV", maNV);
+            hoaDon.getElementsByTagName("ngayDH")[0].childNodes[0].nodeValue = ngayDH;
+
+            row.cells[0].innerHTML = maHD;
+            row.cells[1].innerHTML = maKH;
+            row.cells[2].innerHTML = maNV;
+            row.cells[3].innerHTML = ngayDH;
+          };     
+          suaCell.appendChild(suaBtn);
+        }
+//#endregion
+
 
         </script>
     </body>
