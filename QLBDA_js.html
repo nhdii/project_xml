@@ -16,7 +16,7 @@
     </head>
     <body>
         <!-- Tạo bảng hiển thị món ăn -->
-        <h3>Danh sách món ăn</h3>
+        <h2>Danh sách món ăn</h2>
         <table>
             <thead>
                 <tr id = "first-tr">
@@ -31,7 +31,7 @@
             <tbody id="monans-table"></tbody>
           </table>
           <!-- Tạo nút thêm món ăn mới -->
-          <button onclick="themMonAn()">Thêm món ăn</button>
+          <button onclick="themMonAn()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm món ăn</button>
 
           <!-- Form nhập món ăn mới (sử dụng cho hàm javascript lưu dữ liệu vào localStorage) -->
         <!-- <h3>Thêm mới món ăn</h3>
@@ -48,7 +48,7 @@
         </form> -->
 
         <!-- Tạo bảng hiển thị danh sách khách hàng -->
-        <h3>Danh sách khách hàng</h3>
+        <h2>Danh sách khách hàng</h2>
         <table>
             <thead>
                 <tr id = "first-tr">
@@ -57,15 +57,17 @@
                     <th>Địa chỉ</th>
                     <th>Số điện thoại</th>
                     <th>Email</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="khachHangs-table"></tbody>
         </table>
         <!-- Tạo nút thêm khách hàng -->
-        <button onclick="themKH()">Thêm khách hàng</button>
+        <button onclick="themKH()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm khách hàng</button>
        
         <!-- Tạo bảng hiển thị danh sách nhân viên -->
-        <h3>Danh sách nhân viên</h3>
+        <h2>Danh sách nhân viên</h2>
         <table>
             <thead>
                 <tr id = "first-tr">
@@ -73,17 +75,19 @@
                     <th>Họ tên nhân viên</th>
                     <th>Số điện thoại</th>
                     <th>Email</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="nhanViens-table"></tbody>
         </table>
         
         <!-- Tạo nút thêm nhân viên -->
-        <button onclick="themNV()">Thêm nhân viên</button>
+        <button onclick="themNV()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm nhân viên</button>
 
 
         <!-- Tạo bảng hiển thị danh sách hóa đơn -->
-        <h3>Danh sách hóa đơn</h3>
+        <h2>Danh sách hóa đơn</h2>
         <table>
             <thead>
                 <tr id = "first-tr">
@@ -91,17 +95,19 @@
                     <th>Mã khách hàng</th>
                     <th>Mã nhân viên</th>
                     <th>Ngày đặt hàng</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="hoaDons-table"></tbody>
         </table>
 
         <!-- Tạo nút thêm hóa đơn -->
-        <button onclick="themHD()">Thêm hóa đơn</button>
+        <button onclick="themHD()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm hóa đơn</button>
 
 
         <!-- Tạo bảng hiển thị danh sách chi tiết hóa đơn -->
-        <h3>Danh sách chi tiết hóa đơn</h3>
+        <h2>Danh sách chi tiết hóa đơn</h2>
         <table>
             <thead>
                 <tr id = "first-tr">
@@ -123,7 +129,7 @@
                 myFunction(this);
               }
             };
-            xhttp.open("GET", "instance1.xml", true);
+            xhttp.open("GET", "QLBDA.xml", true);
             xhttp.send();
             
             function myFunction(xml){

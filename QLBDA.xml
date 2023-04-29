@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?xml-stylesheet type="text/xsl" href="QLBDA.xsl"?>
-<QLBDA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="QLBDA.xsd">
+<!DOCTYPE QLBDA SYSTEM "QLBDA.dtd">
+<?xml-stylesheet type="text/css" href="QLBDA.css"?>
+<QLBDA>
     <MONANS>
         <MONAN maMonAn="MA0001">
             <tenMon>Gà Rán</tenMon>

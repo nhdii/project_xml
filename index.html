@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <meta charset="UTF-8"/>
+        <title>Trang chủ</title>
+        
+        <style>
+            
+            /* Style for all buttons */
+            body {
+              background: #012043;
+              color:#6098FF;
+              font-family:sans-serif;
+              font-size:16px;
+            }
+            h2{
+              font-size:14px;
+              text-transform:uppercase;
+              letter-spacing:3px;
+              margin-top: 70px;
+              margin-bottom:20px;
+            }
+            .btn5
+            {
+              padding: 15px 70px;
+              margin:10px 4px;
+              color: #fff;
+              font-family: sans-serif;
+              text-transform: uppercase;
+              text-align: center;
+              position: relative;
+              text-decoration: none;
+              display:inline-block;
+              
+            }
+            
+            .btn::before {
+              content: '';
+              position: absolute;
+              bottom: 50%;
+              left: 0px;
+              width: 100%;
+              height: 1px;
+              background: #6098FF;
+              display: block;
+              -webkit-transform-origin: left top;
+              -ms-transform-origin: left top;
+              transform-origin: left top;
+              -webkit-transform: scale(0, 1);
+              -ms-transform: scale(0, 1);
+              transform: scale(0, 1);
+              -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+              transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+            }
+            
+            .btn:hover::before {
+              -webkit-transform-origin: right top;
+              -ms-transform-origin: right top;
+              transform-origin: right top;
+              -webkit-transform: scale(1, 1);
+              -ms-transform: scale(1, 1);
+              transform: scale(1, 1)
+            }
+            /* Wrapper Is not Needed| Just for demo purpose.  */
+            .wrapper {
+              margin: 150px auto;
+              text-align: center;
+              width: 100%;
+              position: relative;
+            }
+            .btn5{
+                  border:none;
+                }
+                .btn5::before {
+                  content: '';
+                  position: absolute;
+                  left: 0px;
+                  bottom:0px;
+                  z-index:-1;
+                  width: 100%;
+                  height:100%;
+                  background: transparent;
+                  box-shadow: inset 0px 0px 0px #6098FF;
+                  display: block;
+                  -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1);
+                  transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+                }
+                /* if you want it to show from the right use -300px instead */
+                .btn5:hover::before {
+                 box-shadow: inset 300px 0px 0px #6098FF;
+                }
+        </style>
+    </head>
+    <body>
+        <h2 style="font-size: 40px; text-align: center; margin: 80px;"> TRANG CHỦ QUẢN LÝ BÁN ĐỒ ĂN NHANH </h2>
+        <a href="QLBDA.xml" class="btn5">
+            FILE XML
+        </a>
+        <a href="QLBDA_js.html"  class="btn5">
+            DOM javascrip
+        </a>
+        <a href="QLBDA.css"  class="btn5">
+            CSS
+        </a>
+        <a  href="QLBDA.xsd"  class="btn5">
+            XSD
+        </a>
+        <a href="QLBDA.xsl" class="btn5">
+          XSL
+       </a>
+       
+        <a href="QLBDA.xquery" class="btn5">XQUERY</a>
+        <a  href="QLBDA.dtd" class="btn5">
+          DTD
+        </a>
+    </body>
+</html>
