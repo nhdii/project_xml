@@ -33,19 +33,20 @@
           <!-- Tạo nút thêm món ăn mới -->
           <button onclick="themMonAn()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm món ăn</button>
 
-          <!-- Form nhập món ăn mới (sử dụng cho hàm javascript lưu dữ liệu vào localStorage) -->
-        <!-- <h3>Thêm mới món ăn</h3>
-        <form id="them-mon-form">
-          <label for="maMonAn">Mã món ăn:</label><br>
-          <input type="text" id="maMonAn" name="maMonAn"><br>
-          <label for="tenMon">Tên món:</label><br>
-          <input type="text" id="tenMon" name="tenMon"><br>
-          <label for="gia">Giá:</label><br>
-          <input type="text" id="gia" name="gia"><br>
-          <label for="moTa">Mô tả:</label><br>
-          <textarea id="moTa" name="moTa"></textarea><br><br>
-          <input type="button" value="Thêm" onclick="themMonAn()">
-        </form> -->
+<!-- #region Form nhập món ăn mới (sử dụng cho hàm javascript lưu dữ liệu vào localStorage) -->
+          <!-- <h3>Thêm mới món ăn</h3>
+          <form id="them-mon-form">
+            <label for="maMonAn">Mã món ăn:</label><br>
+            <input type="text" id="maMonAn" name="maMonAn"><br>
+            <label for="tenMon">Tên món:</label><br>
+            <input type="text" id="tenMon" name="tenMon"><br>
+            <label for="gia">Giá:</label><br>
+            <input type="text" id="gia" name="gia"><br>
+            <label for="moTa">Mô tả:</label><br>
+            <textarea id="moTa" name="moTa"></textarea><br><br>
+            <input type="button" value="Thêm" onclick="themMonAn()">
+          </form> -->
+          <!-- #endregion -->
 
         <!-- Tạo bảng hiển thị danh sách khách hàng -->
         <h2>Danh sách khách hàng</h2>
@@ -101,11 +102,9 @@
             </thead>
             <tbody id="hoaDons-table"></tbody>
         </table>
-
         <!-- Tạo nút thêm hóa đơn -->
         <button onclick="themHD()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm hóa đơn</button>
-
-
+     
         <!-- Tạo bảng hiển thị danh sách chi tiết hóa đơn -->
         <h2>Danh sách chi tiết hóa đơn</h2>
         <table>
@@ -125,8 +124,9 @@
         <!-- Tạo nút thêm hóa đơn -->
         <button onclick="themCTHD()" style="margin-top: 10px; margin-bottom: 30px; font-size: 16px; background-color: aquamarine;">Thêm chi tiết hóa đơn</button>
         
-        <!-- script javascrip -->
+        <!-- script javascript -->
         <script>
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
@@ -370,6 +370,7 @@
 
 //#region Hàm thêm, xóa, sửa khách hàng
 
+            //hàm thêm khách hàng mới
             function themKH(row, maKH){
               var khachHangs_table = document.getElementById("khachHangs-table");
               var row = khachHangs_table.insertRow();
@@ -396,6 +397,7 @@
     
             }
 
+            //hàm xóa khách hàng
             function xoaKH(row, maKH){
               var xoaCell = row.insertCell();
               var xoaBtn = document.createElement("BUTTON");
@@ -437,6 +439,7 @@
 //#endregion
         
 //#region Hàm thêm, xóa, sửa nhân viên
+            //hàm thêm nhân viên mới
             function themNV(row, maNV){
               var nhanViens_table = document.getElementById("nhanViens-table");
               var row = nhanViens_table.insertRow();
@@ -460,6 +463,7 @@
               xoaCell.appendChild(xoaBtn);
             }
 
+            //hàm xóa nhân viên
             function xoaNV(row, maNV){
               var xoaCell = row.insertCell();
               var xoaBtn = document.createElement("BUTTON");
@@ -498,6 +502,8 @@
 //#endregion
 
 //#region Hàm thêm, xóa, sửa hóa đơn
+          
+          //hàm thêm hóa đơn
           function themHD(row, maHD){
             var hoaDons_table = document.getElementById("hoaDons-table");
             var row = hoaDons_table.insertRow();
@@ -521,6 +527,7 @@
             xoaCell.appendChild(xoaBtn);
           }
 
+          //hàm xóa hóa đơn
           function xoaHD(row, maHD){
             var xoaCell = row.insertCell();
             var xoaBtn = document.createElement("BUTTON");
@@ -559,69 +566,72 @@
 //#endregion
 
 //#region Hàm thêm, xóa, sửa chi tiết hóa đơn
-          function themCTHD(row, maHD){
-            var CTHoaDons_table = document.getElementById("CTHoaDons-table");
-            var row = CTHoaDons_table.insertRow();
-            var maHDCell = row.insertCell(0);
-            var maMACell = row.insertCell(1);
-            var soLuongCell = row.insertCell(2);
-            var diaChiGHCell = row.insertCell(3);
-            var thanhTienCell = row.insertCell(4);
-            var xoaCell = row.insertCell(5);
 
-            //Nhập thông tin cho khách hàng mới
-            maHDCell.innerHTML = prompt("Nhập mã hóa đơn");
-            maMACell.innerHTML = prompt("Nhập mã món ăn");
-            soLuongCell.innerHTML = prompt("Nhập số lượng");
-            diaChiGHCell.innerHTML = prompt("Nhập địa chỉ giao hàng");
-            thanhTienCell.innerHTML = prompt("Nhập tổng tiền");
+        //hàm thêm chi tiết hóa đơn
+        function themCTHD(row, maHD){
+          var CTHoaDons_table = document.getElementById("CTHoaDons-table");
+          var row = CTHoaDons_table.insertRow();
+          var maHDCell = row.insertCell(0);
+          var maMACell = row.insertCell(1);
+          var soLuongCell = row.insertCell(2);
+          var diaChiGHCell = row.insertCell(3);
+          var thanhTienCell = row.insertCell(4);
+          var xoaCell = row.insertCell(5);
 
-            var xoaBtn = document.createElement("BUTTON");
-            xoaBtn.innerHTML = "Xóa";
-            xoaBtn.onclick = function(){
-              row.remove();
-            };
-            xoaCell.appendChild(xoaBtn);
-          }
+          //Nhập thông tin cho khách hàng mới
+          maHDCell.innerHTML = prompt("Nhập mã hóa đơn");
+          maMACell.innerHTML = prompt("Nhập mã món ăn");
+          soLuongCell.innerHTML = prompt("Nhập số lượng");
+          diaChiGHCell.innerHTML = prompt("Nhập địa chỉ giao hàng");
+          thanhTienCell.innerHTML = prompt("Nhập tổng tiền");
 
-          function xoaCTHD(row, maHD){
-            var xoaCell = row.insertCell();
-            var xoaBtn = document.createElement("BUTTON");
-            xoaBtn.innerHTML = "Xóa";
-
-            xoaBtn.onclick = function(){
-              row.remove();
-            }
-            xoaCell.appendChild(xoaBtn);
-          }
-
-          //hàm chỉnh sửa hóa đơn
-          function suaCTHD(row, CTHoaDon) {
-          var suaCell = row.insertCell();
-          var suaBtn = document.createElement("BUTTON");
-          suaBtn.innerHTML = "Sửa";
-          
-          suaBtn.onclick = function() {
-            var maHD = prompt("Nhập mã hóa đơn:", CTHoaDon.getAttribute("maHD"));
-            var maMonAn = prompt("Nhập mã món ăn:", CTHoaDon.getAttribute("maMonAn"));
-            var soLuong = prompt("Nhập số lượng:", CTHoaDon.getElementsByTagName("soLuong")[0].childNodes[0].nodeValue);
-            var diaChiGH = prompt("Nhập địa chỉ giao hàng:", CTHoaDon.getElementsByTagName("diaChiGH")[0].childNodes[0].nodeValue);
-            var thanhTien = prompt("Nhập tổng tiền:", CTHoaDon.getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue);
-
-            CTHoaDon.setAttribute("maHD", maHD);
-            CTHoaDon.setAttribute("maMonAn", maMonAn);
-            CTHoaDon.getElementsByTagName("soLuong")[0].childNodes[0].nodeValue = soLuong;
-            CTHoaDon.getElementsByTagName("diaChiGH")[0].childNodes[0].nodeValue = diaChiGH;
-            CTHoaDon.getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue = thanhTien;
-
-            row.cells[0].innerHTML = maHD;
-            row.cells[1].innerHTML = maMonAn;
-            row.cells[2].innerHTML = soLuong;
-            row.cells[3].innerHTML = diaChiGH;
-            row.cells[4].innerHTML = thanhTien;
-          };     
-          suaCell.appendChild(suaBtn);
+          var xoaBtn = document.createElement("BUTTON");
+          xoaBtn.innerHTML = "Xóa";
+          xoaBtn.onclick = function(){
+            row.remove();
+          };
+          xoaCell.appendChild(xoaBtn);
         }
+
+        //hàm xóa
+        function xoaCTHD(row, maHD){
+          var xoaCell = row.insertCell();
+          var xoaBtn = document.createElement("BUTTON");
+          xoaBtn.innerHTML = "Xóa";
+
+          xoaBtn.onclick = function(){
+            row.remove();
+          }
+          xoaCell.appendChild(xoaBtn);
+        }
+
+        //hàm chỉnh sửa hóa đơn
+        function suaCTHD(row, CTHoaDon) {
+        var suaCell = row.insertCell();
+        var suaBtn = document.createElement("BUTTON");
+        suaBtn.innerHTML = "Sửa";
+        
+        suaBtn.onclick = function() {
+          var maHD = prompt("Nhập mã hóa đơn:", CTHoaDon.getAttribute("maHD"));
+          var maMonAn = prompt("Nhập mã món ăn:", CTHoaDon.getAttribute("maMonAn"));
+          var soLuong = prompt("Nhập số lượng:", CTHoaDon.getElementsByTagName("soLuong")[0].childNodes[0].nodeValue);
+          var diaChiGH = prompt("Nhập địa chỉ giao hàng:", CTHoaDon.getElementsByTagName("diaChiGH")[0].childNodes[0].nodeValue);
+          var thanhTien = prompt("Nhập tổng tiền:", CTHoaDon.getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue);
+
+          CTHoaDon.setAttribute("maHD", maHD);
+          CTHoaDon.setAttribute("maMonAn", maMonAn);
+          CTHoaDon.getElementsByTagName("soLuong")[0].childNodes[0].nodeValue = soLuong;
+          CTHoaDon.getElementsByTagName("diaChiGH")[0].childNodes[0].nodeValue = diaChiGH;
+          CTHoaDon.getElementsByTagName("thanhTien")[0].childNodes[0].nodeValue = thanhTien;
+
+          row.cells[0].innerHTML = maHD;
+          row.cells[1].innerHTML = maMonAn;
+          row.cells[2].innerHTML = soLuong;
+          row.cells[3].innerHTML = diaChiGH;
+          row.cells[4].innerHTML = thanhTien;
+        };     
+        suaCell.appendChild(suaBtn);
+      }
 //#endregion
 
         </script>

@@ -6,51 +6,48 @@
         <MONAN maMonAn="MA0001">
             <tenMon>Gà Rán</tenMon>
             <gia>32000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Gà rán là một món ăn nhanh thơm ngon và được nhiều người ưa thích. 
+            Nguyên liệu chính là thịt gà được tẩm ướp gia vị, lăn qua bột rồi chiên trên chảo hoặc trong nồi áp suất. 
+            Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
+            Gà rán có thể ăn kèm với tương ớt, tương cà, khoai tây chiên hoặc salad. </moTa>
         </MONAN>
         <MONAN maMonAn="MA0002">
             <tenMon>Khoai tây chiên</tenMon>
             <gia>21000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Khoai tây chiên là món ăn được nhiều người yêu thích trên thế giới. 
+            Khoai tây được gọt vỏ, thái thành sợi hoặc hình que, rồi chiên trong dầu nóng cho đến khi vàng giòn. 
+            Khoai tây chiên có thể ăn kèm với nhiều loại nước xốt như cà chua, mayonnaise, giấm hay xốt BBQ.</moTa>
         </MONAN>
         <MONAN maMonAn="MA0003">
             <tenMon>Hamburger bò</tenMon>
             <gia>35000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Hamburger bò bao gồm bánh mì kẹp thịt bò xay ở giữa. Thịt bò có thể được nướng, chiên, hun khói. 
+            Hamburger bò thường được ăn kèm với pho mát, rau xà lách, cà chua, hành tây,
+            dưa chuột muối chua và các loại sốt như sốt cà chua, mù tạt, mayonnaise...</moTa>
         </MONAN>
         <MONAN maMonAn="MA0004">
             <tenMon>Pizza phô mai</tenMon>
             <gia>69000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Pizza phô mai được làm từ bột mì, nước sốt cà chua, phô mai và các nguyên liệu khác. Pizza phô mai có hương vị 
+            thơm ngon, béo ngậy và hấp dẫn.</moTa>
         </MONAN>
         <MONAN maMonAn="MA0005">
             <tenMon>Cánh gà nướng</tenMon>
             <gia>29000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Cánh gà được ướp với các gia vị như nước mắm, tỏi, mật ong, ớt và nước cốt chanh, sau đó được nướng cho đến khi chín vàng giòn.</moTa>
         </MONAN>
         <MONAN maMonAn="MA0006">
             <tenMon>Gà Rán sốt cay</tenMon>
             <gia>34000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Gà rán sốt cay được làm từ thịt gà tươi ngon, sau khi được chiên giòn, sẽ được phết đều với sốt cay đặc trưng của món ăn này.
+            Sốt cay trong món gà rán sốt cay thường được làm từ tổ hợp gia vị đặc biệt, bao gồm cả tương ớt, tỏi, gừng, 
+            dầu mè và các loại gia vị khác. Vị cay nồng của sốt cay kết hợp với mùi thơm của gia vị, tạo ra hương vị đặc trưng và độc đáo cho món ăn này.</moTa>
         </MONAN>
         <MONAN maMonAn="MA0007">
             <tenMon>Sanwich trứng rán phô mai</tenMon>
             <gia>25000</gia>
-            <moTa>Nguyên liệu chính là những miếng thịt gà đã được lăn bột rồi chiên không dầu. 
-                Lớp bột chiên xù sẽ giúp cho miếng gà có một lớp vỏ ngoài giòn rụm, còn phần thịt bên trong vẫn mềm và mọng nước. 
-                Nguyên liệu được sử dụng phổ biến nhất là gà thịt.</moTa>
+            <moTa>Sanwich trứng rán phô mai có vị thơm ngon của trứng, phô mai và hành tây, 
+            kết hợp với vị giòn tan của bánh mì, tạo thành một hương vị đặc biệt và đầy thú vị.</moTa>
         </MONAN>
     </MONANS>
     
@@ -58,7 +55,7 @@
         <KHACHHANG maKH="KH0001">
             <hoTen>Nguyễn Hoàng Duy</hoTen>
             <diaChi>2 - Nguyễn Đình Chiểu</diaChi>
-            <SDT>0011223344</SDT>     
+            <SDT>01223344</SDT>     
             <email>hoangduy@ntu.edu.vn</email>        
         </KHACHHANG>
         <KHACHHANG maKH="KH0002">
